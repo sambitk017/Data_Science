@@ -107,3 +107,6 @@ This file will give us basics of the python
 # for (a, b) in x:
 #     print(a)
 
+""" SELF """
+
+""" Self is variable that contains the memory reference of the current object"""
