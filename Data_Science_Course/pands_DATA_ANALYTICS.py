@@ -35,7 +35,7 @@ import pandas as pd
 # print(ser3)    #### it will add the both series on the labels , like both have usa at 1 , so the usa will be 2 after adding
 
 """   DATA FRAMES   """
-# from numpy.random import randn
+from numpy.random import randn
 # np.random.seed(101)
 #
 # df = pd.DataFrame(randn(5,4), ['a','b','c','d', 'e'], ['w', 'x', 'y', 'z'])
@@ -56,8 +56,8 @@ import pandas as pd
 
 
 """  DROPPING A ROW IN DATAFRAME  """
-from numpy.random import randn
-np.random.seed(101)
+# from numpy.random import randn
+# np.random.seed(101)
 
 # df = pd.DataFrame(randn(5,4), ['a','b','c','d', 'e'], ['w', 'x', 'y', 'z'])   ### in this rows and columns are specified
 # df_1 = pd.DataFrame(randn(5,4))     #### In this the rows and columns are not specified
@@ -104,3 +104,30 @@ np.random.seed(101)
 # new_df = df.set_index("states")         ### this will explain that if you have a column , you can set that as the index
 # print(new_df)
 
+
+"""   MULTI LEVEL INDEXING and INDEX HIERARCHY   """
+
+outside = ['g1', 'g1', 'g1', 'g2', 'g2', 'g2']
+inside = [1, 2, 3, 1, 2, 3]
+hier_index = list(zip(outside, inside)) ### this will return the list of tuple using outside and inside eg:[('g1', 1), ('g1', 2), ('g1', 3), ('g2', 1), ('g2', 2), ('g2', 3)]
+hier_index = pd.MultiIndex.from_tuples(hier_index)
+# print(hier_index)
+
+df = pd.DataFrame(randn(6, 2), hier_index, ['A,', 'B'])     ###randn is the values , index is the hier_index , the colums are the ['a', 'b']
+# print(df)
+
+print(df.loc['g1']) ###this will return every single data frame that is under the outer index g1\
+print(df.loc['g1'].loc[1]) ###this will return the index 1 from the outer index g1
+
+df.index.names = ['groups', 'num']   #### this will return as the name of the outside and the inside index
+# print(df)
+
+
+"""  indexing  """
+# value = df.loc['g2'].loc[2]['B']   ### this is indexing the data frames with in
+# print(value)
+
+"""   using cross section indexing   """   #### IMPORTANT
+# print(df)
+# print(df.xs(1, level = 'num'))   ### this .xs is called cross section it will return all the indices that is at index 1 in
+                          # all the outer index g

@@ -110,3 +110,6 @@ This file will give us basics of the python
 """ SELF """
 
 """ Self is variable that contains the memory reference of the current object"""
+
+""" __init__  this is a constructor"""
+"""   constructor is used to give arguments to the class """
