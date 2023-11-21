@@ -62,10 +62,10 @@ from numpy.random import randn
 # df = pd.DataFrame(randn(5,4), ['a','b','c','d', 'e'], ['w', 'x', 'y', 'z'])   ### in this rows and columns are specified
 # df_1 = pd.DataFrame(randn(5,4))     #### In this the rows and columns are not specified
 # print(df)
-# df['new'] = df['w'] + df['y']
+# df['List_comprehension_and_NATO'] = df['w'] + df['y']
 # print(df)
 #
-# print(df.drop('new', axis=1))  ## remove a colums , axis = 1 is for the columsn
+# print(df.drop('List_comprehension_and_NATO', axis=1))  ## remove a colums , axis = 1 is for the columsn
 # print(df.drop('a', axis=0))   ## removes a row, axis=0 is for the rows
 
 """   INDEXING ROWS  """
